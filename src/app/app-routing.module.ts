@@ -8,7 +8,7 @@ import { GithubProfileComponent } from './github-profile/github-profile.componen
 import { HomeComponent } from './home/home.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { PostsComponent } from './angularDemoComps/posts/posts.component';
-import { ArcvhiveDateComponent } from './arcvhive-date/arcvhive-date.component';
+import { ArcvhiveDateComponent } from './archive-date/arcvhive-date.component';
 import { AdminComponent } from './admin/admin.component';
 import { LoginComponent } from './login/login.component';
 import { NoAccessComponent } from './no-access/no-access.component';
