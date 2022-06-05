@@ -37,7 +37,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { GithubFollowersService } from './services/v1/github-followers.service';
 import { DemoPageComponent } from './demo-page/demo-page.component';
 import { ArchivesComponent } from './archives/archives.component';
-import { ArcvhiveDateComponent } from './arcvhive-date/arcvhive-date.component';
+import { ArcvhiveDateComponent } from './archive-date/arcvhive-date.component';
 import { OrderService } from './services/v1/order.service';
 import { AuthService } from './services/v1/auth.service';
 import { LoginComponent } from './login/login.component';
