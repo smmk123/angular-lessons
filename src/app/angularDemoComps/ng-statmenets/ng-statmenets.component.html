@@ -13,13 +13,13 @@
 <h4>ngSwitch</h4>
 <ul class="nav nav-pills">
     <li class="nav-item">
-        <a  [class.active]="viewMode == 'map'" 
+        <a  [class.active]="viewMode === 'map'" 
         class="nav-link" data-toggle="pill" 
         (click)="viewMode='map'">
         Map View</a>
     </li>
     <li class="nav-item">
-        <a  [class.active]="viewMode == 'list'"
+        <a  [class.active]="viewMode === 'list'"
         class="nav-link" data-toggle="pill" 
         (click)="viewMode='list'">
         List View</a>
