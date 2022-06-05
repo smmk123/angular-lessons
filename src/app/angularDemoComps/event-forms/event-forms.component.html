@@ -1,0 +1,35 @@
+<p>
+<!--get key press long way-->
+old input <br>
+<input (keyup)="onKeyUpOld($event)"/>
+</p>
+
+<p>
+    <!--better input but no way to save-->
+    better input <br>
+    <input (keyup.enter)="onKeyUpBetter()"/>
+</p>
+    
+<p>
+    <!--saves input into variable-->
+    saves input into variable <br>
+    <input #templeteEmail (keyup.enter)="onKeyUpTemplateVariable($event)"/>
+</p>
+    
+<p>
+    <!--saves input into variable better-->
+    saves input into cleaner variable <br>
+    <input #templeteEmail2 (keyup.enter)="onKeyUpTemplateVariable2(templeteEmail2.value)"/>
+</p>
+
+<!-- <p>
+    <!--bad 2 way binding
+    sloppy 2 way <br>
+    <input [value]="email2" (keyup.enter)="email2 = $event.target.value; onKeyUp()"/>
+</p> -->
+
+<!--2 way binding need to import FormsModule in app.module doesn't submit form only logs it on DOM so need to use f12 on browser to see input
+[(ngModel)]="fieldProperty" (keyup.enter)="onKeyUp()"-->
+<p>2-way binding
+<input [(ngModel)]="email" (keyup.enter)="onKeyUp()"/>
+</p>

@@ -1,0 +1,47 @@
+<form [formGroup]="form" (ngSubmit)="login()">
+    <div *ngIf="form.errors" class="alert alert-danger">
+        Username or Password is not right.
+    </div>
+    <div formGroupName="account"><!--to reach nested form groups wrap it in DIV with formgroupname-->
+        <div class="form-group">
+            <label for="username">Username</label>
+            <input 
+                formControlName="username"
+                id="username" 
+                type="text" 
+                class="form-control">
+            <!--loading icon-->
+            <div *ngIf="username.pending" class="oi oi-clock"> Checking</div>
+
+            <div *ngIf="username.touched && username.invalid" 
+            class="alert alert-danger">
+
+                <div *ngIf="username.errors?.['required']" 
+                class="alert alert-danger">
+                Username required</div>
+
+                <div *ngIf="username.errors?.['minlength']" 
+                class="alert alert-danger">
+                user name should be {{username.errors?.['minlength'].requiredLength}} charcters long</div>
+
+                <div *ngIf="username.errors?.['cannotContainSpace']" 
+                class="alert alert-danger">
+                user name can not contain space</div>
+
+                <div *ngIf="username.errors?.['shouldBeUnique']" 
+                class="alert alert-danger">
+                user name is already taken</div>
+
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input 
+                formControlName="password"
+                id="password" 
+                type="text" 
+                class="form-control">
+        </div>
+    </div>
+    <button class="btn btn-primary" type="submit">Sign Up</button>
+</form>

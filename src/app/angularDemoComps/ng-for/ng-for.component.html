@@ -1,0 +1,25 @@
+<h4>ngFor</h4>
+<ul>
+    <li *ngFor="let classRoom of classRooms; index as i">
+        {{i}}+{{classRoom.number}}
+        <button (click)="onRemove(classRoom)">Remove</button>
+    </li>
+</ul>
+
+<h4>ngFor</h4>
+<ul>
+    <li *ngFor="let classRoom of classRooms; even as isEven">
+        {{classRoom.number}}<span *ngIf="isEven">(EVEN)</span>
+    </li>
+</ul>
+
+<button (click)="onAdd()">Add</button>
+
+<p></p>
+<!--use track by to reduce calls to DB trackby force only to reload those with different ID properties-->
+<button (click)="loadCourses()">Load Courses</button>
+<ul>
+    <li *ngFor="let course of courses; trackBy: trackCourse">
+        {{course.name}}
+    </li>
+</ul>

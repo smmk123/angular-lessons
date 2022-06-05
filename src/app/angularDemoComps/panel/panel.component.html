@@ -1,0 +1,13 @@
+<!--ng-content will let outside users access this template
+select will corrispond to outside call for the class
+outside you can use ng-container to access this componants markup from outside-->
+<div class="card">
+    <div class="card-body">
+        <h5 class="card-title">
+            <ng-content select='.heading'></ng-content>
+        </h5>
+        <p class="card-body">
+            <ng-content select=".body"></ng-content>
+        </p>
+    </div>
+</div>

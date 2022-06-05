@@ -1,0 +1,29 @@
+<!--one-way binding-->
+<p>{{title}} <br>
+
+<!--interperted binding-->
+<img src="{{imageUrl}}">
+
+<!--property binding-->
+<img [src]="imageUrl"/>
+</p>
+
+
+
+<!--only effects the attibute in DOM using "attr." -->
+<table>
+    <caption>attribute binding</caption>
+    <tr>
+        <td [attr.colspan]="colSpan"></td>
+    </tr>
+</table>
+
+<!--binding button sub-class to is active in component.ts you can modify the behavior in there-->
+<button class="btn btn-primary" [class.active]="isActive">Save</button>
+
+<!--binding button style if isActive is true then it is green otherwise it is red-->
+<button [style.backgroundColor]="isActive ? 'green': 'red'">{{isActive}}</button>
+
+<!--binding button action to component-->
+<!--getting all $event data printed onto DOM Console remove parameter if click event no needed-->
+<button (click)="onClick($event)" [style.backgroundColor]="isActive ? 'green': 'red'">Click to Activate</button>

@@ -1,0 +1,92 @@
+<form #f="ngForm" (ngSubmit)="submit(f)">
+    <div ngModelGroup="contact" #contact="ngModelGroup">
+        <div *ngIf="!contact.valid"> not valid contact</div>
+        <div class="form-group">
+            <label for="firstName">First name</label>
+            <!--apply validation to input field pattern="" regex is usable   use ngModel to bind firstName        on change  call log()-->
+            <input 
+                required 
+                minlength="3" 
+                maxlength="15"  
+                pattern="catchPhrase" 
+                ngModel name="firstName" 
+                #firstName="ngModel" 
+                (change)="log(firstName)" 
+                id ='firstName' 
+                type="text" 
+                class="form-control"> 
+    
+    
+            <!-- write error message if ngModel input has been touched and is not valid show this div need to add ? to error so it can be null and [''] to required for typescript-->
+            <div 
+            class="alert alert-danger" 
+            *ngIf="firstName.touched && !firstName.valid">
+                <div class="alert alert-danger" 
+                    *ngIf="firstName.errors?.['required']">
+                    First Name is Required
+                </div>
+                <div class="alert alert-danger" 
+                    *ngIf="firstName.errors?.['minlength']">
+                    Minimum of {{firstName.errors?.['minlength'].requiredLength}} characters
+                </div>
+                <div class="alert alert-danger" 
+                    *ngIf="firstName.errors?.['pattern']">
+                    name must be catchPhrase
+                </div>
+            </div>
+    
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="comment">Comment</label>
+        <textarea 
+            ngModel name="comment" 
+            id="comment" cols="30" rows="10" 
+            class="form-control">
+        </textarea>
+    </div>
+
+    <div class="checkbox">
+        <label for="">
+            <input type="checkbox" ngModel name="isSubscribed"> Subscribe
+        </label>
+    </div>
+
+    <div class="form-group">
+        <label for="contactMethod">Contact Method</label>
+        <!--add multiple to allow users to select multiple from drop down list-->
+        <select 
+            ngModel name="contactMethod" 
+            id="contactMethod" 
+            class="form-control">
+                <!--blank value to force user to choose-->
+                <option value=""></option>
+            <!--use ngfor to populate options from componant use ngValue to expose whole object or [value]='method.id' for just the id property-->
+                <option 
+                    *ngFor="let method of contactMethods" 
+                    [ngValue]="method">
+                    {{method.name}}
+                </option>
+        </select>
+    </div>
+
+    <div *ngFor="let frequency of contactFrequency" class="radio">
+        <label for="">
+            <input ngModel type="radio" 
+                name="contactFrequency" 
+                [value]="frequency.id">
+            {{frequency.name}}
+        </label>
+    </div>
+    
+    
+    
+    
+    <!--great debug tool shows form object in json -->
+    <p>
+        {{f.value| json}}
+    </p>
+
+    <button class="btn btn-primary" [disabled]="!f.valid">Submit</button>
+</form>

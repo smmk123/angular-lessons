@@ -1,0 +1,20 @@
+<p>pipe tests-
+<input [(ngModel)]="pipeTestNum"/>
+<!--'interger.decimalmin-decimal max'-->
+<br>round ones: {{pipeTestNum|number: '1.0-0'}}
+<br>currency: {{pipeTestNum|currency: 'CAD':'symbol'}}
+</p>
+<p>Date-
+    <br>{{releaseDate}}
+    <br>Short date: {{releaseDate| date:'shortDate'}}
+</p>
+
+
+<p>custom summary pipe<br>
+    <strong>{{longText|customPipe}}</strong>
+</p>
+
+<p>title-case pipe filter<br>
+<input [(ngModel)]="userString"/>
+<br>{{userString | TitleCasePipe }}
+</p>

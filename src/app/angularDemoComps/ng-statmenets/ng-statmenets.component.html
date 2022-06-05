@@ -1,0 +1,34 @@
+<h4>ngIf</h4>
+<input [(ngModel)]="courses"/>
+<div *ngIf="courses.length >0; then coursesList else noCourses"></div>
+
+<ng-template #coursesList>
+    <h5>have courses</h5>
+</ng-template>    
+
+<ng-template #noCourses>
+    <h5>no courses</h5>
+</ng-template>   
+
+<h4>ngSwitch</h4>
+<ul class="nav nav-pills">
+    <li class="nav-item">
+        <a  [class.active]="viewMode == 'map'" 
+        class="nav-link" data-toggle="pill" 
+        (click)="viewMode='map'">
+        Map View</a>
+    </li>
+    <li class="nav-item">
+        <a  [class.active]="viewMode == 'list'"
+        class="nav-link" data-toggle="pill" 
+        (click)="viewMode='list'">
+        List View</a>
+    </li>
+</ul>
+
+<div [ngSwitch]="viewMode">
+    <h5 *ngSwitchCase="'map'">MAP CONTENT</h5>
+    <h5 *ngSwitchCase="'list'">LIST CONTENT</h5>
+    <h5 *ngSwitchDefault>DEFAULT CONTENT</h5>
+</div>
+
